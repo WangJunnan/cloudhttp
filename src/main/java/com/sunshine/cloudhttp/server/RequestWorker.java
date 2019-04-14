@@ -59,9 +59,8 @@ public class RequestWorker implements Runnable {
                     outputStream.write(bytes, 0, len);
                 }
             } catch (IOException e1) {
-                e1.printStackTrace();
+                logger.error("error_requestWork_write404", e);
             }
-            response.getOutPutStream();
         }
         byte [] resHeader = HttpParser.encodeResHeader(response);
         byte [] body = response.getOutPutStream().toByteArray();
